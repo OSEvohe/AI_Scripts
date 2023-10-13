@@ -79,4 +79,4 @@ fi
 cd "$BASE_DIR"
 
 # Lancer la commande pour la mise à jour
-./webui.sh --upgrade --listen --insecure --port 8080
+./webui.sh --upgrade --listen --insecure --port 8080 -f
