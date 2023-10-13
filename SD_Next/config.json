@@ -1,0 +1,88 @@
+{
+  "sd_model_checkpoint": "realisticVisionV51_v51VAE.safetensors [15012c538f]",
+  "cross_attention_options": [
+    "SDP disable memory attention"
+  ],
+  "sd_lora": "",
+  "styles_dir": "models/styles",
+  "quicksettings_list": [
+    "sd_model_checkpoint",
+    "sd_vae"
+  ],
+  "show_samplers": [
+    "Default",
+    "Euler a",
+    "DEIS",
+    "DPM 1S",
+    "DPM 2M",
+    "DPM++ 2M SDE",
+    "DPM++ 2M SDE Karras",
+    "DPM2 Karras",
+    "DPM++ 2M Karras",
+    "DPM fast",
+    "Euler",
+    "DPM++ 2S a",
+    "DPM++ 2S a Karras",
+    "DPM++ 2M",
+    "DPM++ SDE",
+    "DPM++ SDE Karras",
+    "Heun",
+    "LMS Karras",
+    "LMS",
+    "DPM2 a Karras",
+    "DPM2 a",
+    "DPM2",
+    "DPM adaptive",
+    "DPM++ 3M SDE Karras",
+    "DPM++ 3M SDE",
+    "DDIM",
+    "UniPC"
+  ],
+  "postprocessing_enable_in_main_ui": [
+    "CodeFormer",
+    "GFPGAN",
+    "Upscale",
+    "Rembg"
+  ],
+  "postprocessing_operation_order": [],
+  "realesrgan_enabled_models": [
+    "R-ESRGAN 4x+",
+    "R-ESRGAN 4x+ Anime6B"
+  ],
+  "interrogate_clip_skip_categories": [
+    "artists",
+    "movements",
+    "flavors"
+  ],
+  "disabled_extensions": [
+    "stable-diffusion-webui-images-browser",
+    "openpose-editor"
+  ],
+  "sd_checkpoint_hash": "15012c538f503ce2ebfc2c8547b268c75ccdaff7a281db55399940ff1d70e21d",
+  "clip_skip": 1,
+  "uni_pc_lower_order_final": true,
+  "uni_pc_order": 2,
+  "gradio_theme": "gradio/base",
+  "logmonitor_show": false,
+  "theme_style": "Dark",
+  "faceswaplab_nsfw_threshold": 1,
+  "samples_filename_pattern": "[seq]",
+  "samples_format": "png",
+  "show_progress_every_n_steps": 2,
+  "live_preview_refresh_period": 1000,
+  "control_net_unit_count": 4,
+  "multiple_tqdm": false,
+  "diffusers_model_load_variant": "fp16",
+  "diffusers_vae_load_variant": "fp16",
+  "cuda_compile_backend": "ipex",
+  "diffusers_pipeline": "Stable Diffusion",
+  "diffusers_vae_upcast": "false",
+  "enable_quantization": false,
+  "sd_vae": "vae-ft-ema-560000-ema-pruned.ckpt",
+  "show_progress_type": "Approximate simple",
+  "cuda_compile_mode": "max-autotune",
+  "cuda_cast_unet": true,
+  "cuda_dtype": "FP16",
+  "opt_channelslast": true,
+  "diffusers_attention_slicing": false
+}
