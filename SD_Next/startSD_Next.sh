@@ -38,9 +38,15 @@ if [ ! -f "$FLAG_FILE" ]; then
   
   # Se placer dans le dossier spécifié
   cd "$BASE_DIR"
+
+  # Autoriser le compte root
+  echo "can_run_as_root=1" >> "$BASE_DIR"/webui-user.sh  
   
   # Lancer la commande avec l'option --test
   ./webui.sh --listen --insecure --port 8080 -f --test
+
+   # Créer un fichier pour indiquer que le script a été lancé
+  touch "$FLAG_FILE"
 
   # Télécharger le fichier config.json et le copier dans le dossier où automatic a été cloné
   curl -o "${BASE_DIR}/config.json" https://raw.githubusercontent.com/OSEvohe/AI_Scripts/main/SD_Next/config.json
@@ -55,7 +61,7 @@ if [ ! -f "$FLAG_FILE" ]; then
   git clone https://github.com/zanllp/sd-webui-infinite-image-browsing ./extensions/sd-webui-infinite-image-browsing
 
   # Exécuter le fichier install.py
-  python ./extensions/sd-webui-infinite-image-browsing/install.py
+  # python ./extensions/sd-webui-infinite-image-browsing/install.py
 
   # Vérifier si le dossier 'models' existe, sinon le créer
   if [ ! -d "./models" ]; then
@@ -67,9 +73,6 @@ if [ ! -f "$FLAG_FILE" ]; then
   curl -L -o ./models/vae-ft-ema-560000-ema-pruned.safetensors https://huggingface.co/stabilityai/sd-vae-ft-ema-original/resolve/main/vae-ft-ema-560000-ema-pruned.safetensors
 
   deactivate
-
-  # Créer un fichier pour indiquer que le script a été lancé
-  touch "$FLAG_FILE"
 fi
 
 # Se placer dans le dossier spécifié
