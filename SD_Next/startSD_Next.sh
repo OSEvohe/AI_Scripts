@@ -30,7 +30,7 @@ if [ ! -f "$FLAG_FILE" ]; then
   # Vérifier si le dossier spécifié existe
   if [ -d "$BASE_DIR" ]; then
     # Supprimer le contenu du dossier spécifié
-    rm -rf "$BASE_DIR"/*
+    rm -rf "$BASE_DIR"
   fi
   
   # Cloner le repository dans le dossier spécifié
