@@ -55,8 +55,7 @@
     "flavors"
   ],
   "disabled_extensions": [
-    "stable-diffusion-webui-images-browser",
-    "openpose-editor"
+    "stable-diffusion-webui-images-browser"
   ],
   "sd_checkpoint_hash": "15012c538f503ce2ebfc2c8547b268c75ccdaff7a281db55399940ff1d70e21d",
   "clip_skip": 1,
@@ -65,7 +64,6 @@
   "gradio_theme": "gradio/base",
   "logmonitor_show": false,
   "theme_style": "Dark",
-  "faceswaplab_nsfw_threshold": 1,
   "samples_filename_pattern": "[seq]",
   "samples_format": "png",
   "show_progress_every_n_steps": 2,
@@ -74,11 +72,10 @@
   "multiple_tqdm": false,
   "diffusers_model_load_variant": "fp16",
   "diffusers_vae_load_variant": "fp16",
-  "cuda_compile_backend": "ipex",
   "diffusers_pipeline": "Stable Diffusion",
   "diffusers_vae_upcast": "false",
   "enable_quantization": false,
-  "sd_vae": "vae-ft-ema-560000-ema-pruned.ckpt",
+  "sd_vae": "vae-ft-ema-560000-ema-pruned.safetensors",
   "show_progress_type": "Approximate simple",
   "cuda_compile_mode": "max-autotune",
   "cuda_cast_unet": true,
