@@ -51,28 +51,23 @@ if [ ! -f "$FLAG_FILE" ]; then
   # Télécharger le fichier config.json et le copier dans le dossier où automatic a été cloné
   curl -o "${BASE_DIR}/config.json" https://raw.githubusercontent.com/OSEvohe/AI_Scripts/main/SD_Next/config.json
 
-  # Activer l'environnement virtuel
-  source ./venv/bin/activate
-
   # Utiliser trap pour désactiver l'environnement virtuel en cas d'erreur
   trap '[[ $VIRTUAL_ENV ]] && deactivate' EXIT
 
   # Cloner le repository dans un sous-dossier de ./extensions
   git clone https://github.com/zanllp/sd-webui-infinite-image-browsing ./extensions/sd-webui-infinite-image-browsing
-
-  # Exécuter le fichier install.py
-  # python ./extensions/sd-webui-infinite-image-browsing/install.py
-
+  git clone https://github.com/AbdullahAlfaraj/Auto-Photoshop-StableDiffusion-Plugin.git ./extensions/Auto-Photoshop-StableDiffusion-Plugin
+  git clone https://github.com/Coyote-A/ultimate-upscale-for-automatic1111.git ./extensions/ultimate-upscale-for-automatic1111
+  
   # Vérifier si le dossier 'models' existe, sinon le créer
   if [ ! -d "./models" ]; then
     mkdir -p ./models
   fi
 
   # Utiliser curl avec l'option -L pour suivre les redirections et télécharger les fichiers modèles
-  curl -L -o ./models/realisticVisionV51_v51VAE.safetensors "https://civitai.com/api/download/models/130072?type=Model&format=SafeTensor&size=pruned&fp=fp16"
-  curl -L -o ./models/vae-ft-ema-560000-ema-pruned.safetensors https://huggingface.co/stabilityai/sd-vae-ft-ema-original/resolve/main/vae-ft-ema-560000-ema-pruned.safetensors
+  curl -L -o ./models/Stable-diffusion/realisticVisionV51_v51VAE.safetensors "https://civitai.com/api/download/models/130072?type=Model&format=SafeTensor&size=pruned&fp=fp16"
+  curl -L -o ./models/VAE/vae-ft-ema-560000-ema-pruned.safetensors https://huggingface.co/stabilityai/sd-vae-ft-ema-original/resolve/main/vae-ft-ema-560000-ema-pruned.safetensors
 
-  deactivate
 fi
 
 # Se placer dans le dossier spécifié
