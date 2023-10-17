@@ -63,6 +63,10 @@ if [ ! -f "$FLAG_FILE" ]; then
   if [ ! -d "./models" ]; then
     mkdir -p ./models
   fi
+  
+  mkdir -p "./models/Stable-diffusion"
+  mkdir -p "./models/VAE"
+
 
   # Utiliser curl avec l'option -L pour suivre les redirections et télécharger les fichiers modèles
   curl -L -o ./models/Stable-diffusion/realisticVisionV51_v51VAE.safetensors "https://civitai.com/api/download/models/130072?type=Model&format=SafeTensor&size=pruned&fp=fp16"
