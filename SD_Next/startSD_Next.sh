@@ -41,18 +41,11 @@ if [ ! -f "$FLAG_FILE" ]; then
 
   # Autoriser le compte root
   echo "can_run_as_root=1" >> "$BASE_DIR"/webui-user.sh  
-  
-  # Lancer la commande avec l'option --test
-  ./webui.sh --listen --insecure --port 8080 -f --test
-
-   # Créer un fichier pour indiquer que le script a été lancé
-  touch "$FLAG_FILE"
 
   # Télécharger le fichier config.json et le copier dans le dossier où automatic a été cloné
   curl -o "${BASE_DIR}/config.json" https://raw.githubusercontent.com/OSEvohe/AI_Scripts/main/SD_Next/config.json
 
-  # Utiliser trap pour désactiver l'environnement virtuel en cas d'erreur
-  trap '[[ $VIRTUAL_ENV ]] && deactivate' EXIT
+  mkdir -p "./extensions"
 
   # Cloner le repository dans un sous-dossier de ./extensions
   git clone https://github.com/zanllp/sd-webui-infinite-image-browsing ./extensions/sd-webui-infinite-image-browsing
@@ -67,10 +60,16 @@ if [ ! -f "$FLAG_FILE" ]; then
   mkdir -p "./models/Stable-diffusion"
   mkdir -p "./models/VAE"
 
-
   # Utiliser curl avec l'option -L pour suivre les redirections et télécharger les fichiers modèles
+  curl -L -o ./models/Stable-diffusion/v1-5-pruned-emaonly.safetensors https://huggingface.co/runwayml/stable-diffusion-v1-5/resolve/main/v1-5-pruned-emaonly.safetensors
   curl -L -o ./models/Stable-diffusion/realisticVisionV51_v51VAE.safetensors "https://civitai.com/api/download/models/130072?type=Model&format=SafeTensor&size=pruned&fp=fp16"
   curl -L -o ./models/VAE/vae-ft-ema-560000-ema-pruned.safetensors https://huggingface.co/stabilityai/sd-vae-ft-ema-original/resolve/main/vae-ft-ema-560000-ema-pruned.safetensors
+  
+  # Lancer la commande avec l'option --test
+  ./webui.sh --listen --insecure --port 8080 -f --test
+
+   # Créer un fichier pour indiquer que le script a été lancé
+  touch "$FLAG_FILE"
 
 fi
 
